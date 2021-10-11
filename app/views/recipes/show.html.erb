@@ -1,0 +1,19 @@
+<div>
+  <%= attachment_image_tag @recipe, :image %>
+  <p>料理名：<%= @recipe.title %></p>
+  <p>説明：<%= @recipe.catchcopy %></p>
+  <p>何人前：<%= @recipe.no_of_dish %></p>
+  <div>
+    <% @recipe_ingredients.each do |t| %>
+     <div><%= t.ing_name %></div>
+     <div><%= t.quantity %></div>
+    <% end %>
+  </div>
+    <% @how_to_makes.each do |t| %>
+      <div><%= t.explanation %></div>
+    <% end %>
+  </div>
+  <P><%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-success" %></P>
+  <P><%= link_to "Destroy", recipe_path(@recipe), class: "btn btn-danger", method: :delete, data: { confirm: '本当に消しますか？' }, "dete-confirm" =>"Are you sure?" %></P>
+
+</div>
