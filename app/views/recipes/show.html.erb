@@ -13,7 +13,9 @@
       <div><%= t.explanation %></div>
     <% end %>
   </div>
-  <P><%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-success" %></P>
-  <P><%= link_to "Destroy", recipe_path(@recipe), class: "btn btn-danger", method: :delete, data: { confirm: '本当に消しますか？' }, "dete-confirm" =>"Are you sure?" %></P>
 
+  <% if user_signed_in? && current_user.id == @recipe.user_id %>
+    <P><%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-success" %></P>
+    <P><%= link_to "Destroy", recipe_path(@recipe), class: "btn btn-danger", method: :delete, data: { confirm: '本当に消しますか？' }, "dete-confirm" =>"Are you sure?" %></P>
+  <% end %>
 </div>
