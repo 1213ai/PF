@@ -1,0 +1,8 @@
+<h1>一覧</h1>
+<% @recipes.each do |recipe| %>
+  <p><%= attachment_image_tag recipe, :image %></p>
+  <%= link_to recipe_path(recipe.id) do %>
+    <p>料理名：<%= recipe.title %></p>
+  <% end %>
+  <p>説明：<%= recipe.catchcopy %></p>
+ <% end %>
