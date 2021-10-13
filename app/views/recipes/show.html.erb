@@ -3,7 +3,10 @@
   <p>料理名：<%= @recipe.title %></p>
   <p>説明：<%= @recipe.catchcopy %></p>
   <p>何人前：<%= @recipe.no_of_dish %></p>
-  <div>
+
+  <%= render 'recipes/star', recipe: @recipe %>
+
+ <div>
     <% @recipe_ingredients.each do |t| %>
      <div><%= t.ing_name %></div>
      <div><%= t.quantity %></div>
