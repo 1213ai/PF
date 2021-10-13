@@ -9,6 +9,79 @@
   <h4>何人前</h4>
   <%= f.text_field :no_of_dish %>
 
+
+ <!--☆の評価-->
+  <div class="star-form-group" id="star1">
+    <%= f.label :sweetness,'甘', class:'star-title' %>
+    <script>
+     $('#star1').raty({
+       size     : 36,                                  //☆のサイズ
+       starOff:  '<%= asset_path('star-off.png') %>',  //imagesフォルダより画像を呼び出し
+       starOn : '<%= asset_path('star-on.png') %>',
+       starHalf: '<%= asset_path('star-half.png') %>',
+       scoreName: 'recipe[sweetness]',                 //reviewモデルのcomfortカラムに保存
+       half: true,                                     //星半分を許可する。DBには0.5単位の数値が保存される
+     });
+   </script>
+  </div>
+
+  <div class="star-form-group" id="star2">
+    <%= f.label :spicy,'辛', class:'star-title' %>
+   <script>
+     $('#star2').raty({
+       size     : 36,
+       starOff:  '<%= asset_path('star-off.png') %>',
+       starOn : '<%= asset_path('star-on.png') %>',
+       starHalf: '<%= asset_path('star-half.png') %>',
+       scoreName: 'recipe[spicy]',
+       half: true,
+     });
+   </script>
+  </div>
+
+  <div class="star-form-group" id="star3">
+    <%= f.label :salty,'塩', class:'star-title' %>
+    <script>
+     $('#star3').raty({
+       size     : 36,
+       starOff:  '<%= asset_path('star-off.png') %>',
+       starOn : '<%= asset_path('star-on.png') %>',
+       starHalf: '<%= asset_path('star-half.png') %>',
+       scoreName: 'recipe[salty]',
+       half: true,
+      });
+   </script>
+  </div>
+
+  <div class="star-form-group" id="star4">
+    <%= f.label :bitter_taste,'渋', class:'star-title' %>
+    <script>
+     $('#star4').raty({
+       size     : 36,
+       starOff:  '<%= asset_path('star-off.png') %>',
+       starOn : '<%= asset_path('star-on.png') %>',
+       starHalf: '<%= asset_path('star-half.png') %>',
+       scoreName: 'recipe[bitter_taste]',
+       half: true,
+     });
+   </script>
+  </div>
+
+  <div class="star-form-group" id="star5">
+    <%= f.label :acidity,'酸', class:'star-title' %>
+    <script>
+     $('#star5').raty({
+       size     : 36,
+       starOff:  '<%= asset_path('star-off.png') %>',
+       starOn : '<%= asset_path('star-on.png') %>',
+       starHalf: '<%= asset_path('star-half.png') %>',
+       scoreName: 'recipe[acidity]',
+       half: true,
+     });
+   </script>
+  </div>
+
+
   <!--材料・量の入力フォーム-->
      <div class="recipe-ingredients">
       <div class="mx-auto">

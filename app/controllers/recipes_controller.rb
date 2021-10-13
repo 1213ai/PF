@@ -31,14 +31,10 @@ class RecipesController < ApplicationController
 
   def edit
     @recipe = Recipe.find(params[:id])
-    @recipe_ingredients = @recipe.recipe_ingredients.all
-    @how_to_makes = @recipe.how_to_makes.all
   end
 
   def update
     @recipe = Recipe.find(params[:id])
-    @recipe_ingredients = @recipe.recipe_ingredients.all
-    @how_to_makes = @recipe.how_to_makes.all
    if @recipe.update(recipe_params)
       redirect_to recipe_path(@recipe.id)
    else
@@ -58,10 +54,11 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:title, :catchcopy, :no_of_dish, :image,
-                                  recipe_ingredients_attributes:[:ing_name, :quantity, :_destroy],
-                                  how_to_makes_attributes:[:explanation, :_destroy])
+    params.require(:recipe).permit(:title, :catchcopy, :no_of_dish, :image, :sweetness, :spicy, :salty, :bitter_taste, :acidity,
+                                  recipe_ingredients_attributes:[:ing_name, :quantity, :_destroy, :id],
+                                  how_to_makes_attributes:[:explanation, :_destroy, :id])
   end
+
 
 #他のユーザーが編集できないように
   def ensure_correct_user
