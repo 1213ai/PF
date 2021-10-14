@@ -1,8 +1,12 @@
-<div>
+ <div>
   <%= attachment_image_tag @recipe, :image %>
   <p>料理名：<%= @recipe.title %></p>
   <p>説明：<%= @recipe.catchcopy %></p>
   <p>何人前：<%= @recipe.no_of_dish %></p>
+
+  <div id="favorite-btn_<%= @recipe.id %>">
+    <%= render partial: 'favorites/favorite-btn', locals: { recipe: @recipe} %>
+  </div>
 
   <%= render 'recipes/star', recipe: @recipe %>
 
@@ -21,4 +25,13 @@
     <P><%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-success" %></P>
     <P><%= link_to "Destroy", recipe_path(@recipe), class: "btn btn-danger", method: :delete, data: { confirm: '本当に消しますか？' }, "dete-confirm" =>"Are you sure?" %></P>
   <% end %>
+  
+ <!--コメント-->
+<%= render 'recipe_comments/index', recipe: @recipe,recipe_comment: @recipe_comment%>
+<div>
+    <%= form_with model:[@recipe,@recipe_comment] do |f| %>
+        <%= f.text_area :comment, size:"90x5" %>
+        <%= f.submit '送信'%>
+      <% end %>
 </div>
+ 

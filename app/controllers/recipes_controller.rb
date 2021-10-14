@@ -12,6 +12,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @recipe_ingredients = @recipe.recipe_ingredients.all #追加分の子モデルを表示するため
     @how_to_makes = @recipe.how_to_makes.all
+    @recipe_comment = RecipeComment.new
   end
 
   def index
