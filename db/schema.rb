@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_12_085026) do
+ActiveRecord::Schema.define(version: 2021_10_14_054606) do
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "recipe_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_favorites_on_recipe_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
 
   create_table "how_to_makes", force: :cascade do |t|
     t.integer "recipe_id"
@@ -18,6 +27,16 @@ ActiveRecord::Schema.define(version: 2021_10_12_085026) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["recipe_id"], name: "index_how_to_makes_on_recipe_id"
+  end
+
+  create_table "recipe_comments", force: :cascade do |t|
+    t.text "comment"
+    t.integer "recipe_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_recipe_comments_on_recipe_id"
+    t.index ["user_id"], name: "index_recipe_comments_on_user_id"
   end
 
   create_table "recipe_ingredients", force: :cascade do |t|
@@ -43,6 +62,13 @@ ActiveRecord::Schema.define(version: 2021_10_12_085026) do
     t.float "bitter_taste"
     t.float "acidity"
     t.index ["user_id"], name: "index_recipes_on_user_id"
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

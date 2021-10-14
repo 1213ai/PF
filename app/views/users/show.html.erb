@@ -9,6 +9,10 @@
   <%= @user.introduction %>
 </div>
 
+<%= render 'users/info', user: @user %>
+
+
+
 <!--My投稿一覧-->
 <% @user.recipes.each do |recipe| %>
   <p><%= attachment_image_tag recipe, :image %></p>
@@ -17,3 +21,4 @@
   <% end %>
   <p>説明：<%= recipe.catchcopy %></p>
   <% end %>
+
