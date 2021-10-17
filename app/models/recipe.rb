@@ -21,4 +21,18 @@ class Recipe < ApplicationRecord
     return User.find_by(id: self.user_id)
   end
 
+  def self.sort(selection)
+    case selection
+    when 'new'
+      return all.order(created_at: :DESC)
+    when 'old'
+      return all.order(created_at: :ASC)
+    when 'likes'
+      return find(Favorite.group(:recipe_id).order(Arel.sql('count(recipe_id) desc')).pluck(:recipe_id))
+    when 'dislikes'
+      return find(Favorite.group(:recipe_id).order(Arel.sql('count(recipe_id) asc')).pluck(:recipe_id))
+    end
+  end
+
+
 end

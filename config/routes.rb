@@ -10,4 +10,7 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     resources :recipe_comments, only: [:create, :destroy]
   end
+  
+  get 'search' => 'recipes#search'
+  
 end

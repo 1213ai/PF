@@ -9,6 +9,7 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @user = current_user
     @recipe = Recipe.find(params[:id])
     @recipe_ingredients = @recipe.recipe_ingredients.all #追加分の子モデルを表示するため
     @how_to_makes = @recipe.how_to_makes.all
@@ -51,6 +52,12 @@ class RecipesController < ApplicationController
     @recipe.destroy
     redirect_to recipes_path
   end
+
+  def search
+    selection = params[:keyword]
+    @recipes = Recipe.sort(selection)
+  end
+
 
   private
 
