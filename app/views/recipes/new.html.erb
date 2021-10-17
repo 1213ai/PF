@@ -1,16 +1,21 @@
-<h1>投稿フォーム</h1>
-<%= form_with model: @recipe, local:true do |f| %>
-  <h4>画像</h4>
-  <%= f.attachment_field :image %>
-  <h4>料理名</h4>
-  <%= f.text_field :title %>
-  <h4>説明</h4>
-  <%= f.text_area :catchcopy %>
-  <h4>何人前</h4>
-  <%= f.text_field :no_of_dish %>
+<div class="card py-5">
+　<div class="w-75 mx-auto mt-4 shadow-lg">
+　　<h2>レシピを書く</h2>
+　　　<%= form_with model: @recipe, local:true do |f| %>
+　　<div class="row">
+     <div class="col-sm-6">
+　　　<p>画像<%= f.attachment_field :image %></p>
+　　　<p>料理名 <%= f.text_field :title, class: "form-control" %></p>
+      <div>
+          <p>説明</p>
+          <p><%= f.text_area :catchcopy, class: "form-control" %></p>
+      </div>
+      <p>何人前 <%= f.text_field :no_of_dish, class: "form-control" %></p>
+    </div>
 
 
  <!--☆の評価-->
+ <div class="col-sm-6">
   <div class="star-form-group" id="star1">
     <%= f.label :sweetness,'甘', class:'star-title' %>
     <script>
@@ -80,32 +85,37 @@
      });
    </script>
   </div>
+  </div>
 
 
   <!--材料・量の入力フォーム-->
      <div class="recipe-ingredients">
-      <div class="mx-auto">
+      <div>
         <%= f.fields_for :recipe_ingredients do |t| %>
           <%= render "recipes/recipe_ingredient_fields", f: t %>
         <% end %>
       </div>
 
-      <div class="col-10 mx-auto mt-2">
+      <div>
         <%= link_to_add_association "+フォームを追加", f, :recipe_ingredients%>
       </div>
     </div>
 
   <!--手順の入力フォーム-->
     <div class="how-to-makes">
-      <div class="mx-auto">
+      <div>
         <%= f.fields_for :how_to_makes do |t| %>
           <%= render "recipes/how_to_make_fields", f: t %>
         <% end %>
       </div>
-       <div class="col-10 mx-auto mt-2">
+       <div>
         <%= link_to_add_association "+フォームを追加", f, :how_to_makes %>
       </div>
     </div>
-
-  <%= f.submit '投稿' %>
-<% end %>
+    <div class="col-sm-6"><%= f.submit '投稿' %></div>
+      
+    <% end %>
+   </div>
+  </div>
+ </div>
+</div>
