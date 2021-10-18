@@ -14,17 +14,21 @@ class RecipesController < ApplicationController
     @recipe_ingredients = @recipe.recipe_ingredients.all #追加分の子モデルを表示するため
     @how_to_makes = @recipe.how_to_makes.all
     @recipe_comment = RecipeComment.new
+    @recipe_tags = @recipe.tags         #そのクリックした投稿に紐付けられているタグの取得。
   end
 
   def index
     @recipes = Recipe.all
     @user = current_user
+    @tag_list = Tag.all              #ビューでタグ一覧を表示するために全取得。
   end
 
   def create
     @recipe = Recipe.new(recipe_params)
     @recipe.user_id = current_user.id
+    tag_list = params[:recipe][:tag_name].split(nil)
     if @recipe.save
+       @recipe.save_tag(tag_list)
       redirect_to recipe_path(@recipe)
     else
       render new_recipe_path
@@ -56,6 +60,12 @@ class RecipesController < ApplicationController
   def search
     selection = params[:keyword]
     @recipes = Recipe.sort(selection)
+  end
+
+  def tag_search
+    @tag_list = Tag.all
+    @tag = Tag.find(params[:tag_id])
+    @recipes = @tag.recipes.all
   end
 
 

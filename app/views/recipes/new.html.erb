@@ -4,6 +4,7 @@
 　　　<%= form_with model: @recipe, local:true do |f| %>
 　　<div class="row">
      <div class="col-sm-6">
+       <p>タグ<%= f.text_field :tag_name %></p>
 　　　<p>画像<%= f.attachment_field :image %></p>
 　　　<p>料理名 <%= f.text_field :title, class: "form-control" %></p>
       <div>

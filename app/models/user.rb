@@ -16,6 +16,8 @@ class User < ApplicationRecord
   has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :followings, through: :relationships, source: :followed
 
+
+
   def recipes
    return Recipe.where(user_id: self.id)
   end
