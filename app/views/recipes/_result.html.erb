@@ -1,5 +1,12 @@
 <h1>一覧</h1>
 
+<div>
+  <% @tag_list.each do |list| %>
+    <%= link_to list.tag_name, tag_recipes_path(tag_id: list.id) %>
+    <%= "(#{list.recipes.count})" %>
+  <% end %>
+</div>
+
 <% @recipes.each do |recipe| %>
 
 

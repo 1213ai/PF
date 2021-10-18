@@ -13,4 +13,7 @@ Rails.application.routes.draw do
   
   get 'search' => 'recipes#search'
   
+  resources :tags do
+    get 'recipes', to: 'recipes#tag_search'
+  end
 end
