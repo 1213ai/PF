@@ -1,0 +1,9 @@
+<div class="nested-fields">
+  <div>
+    <div><%= f.text_field :ing_name, placeholder: "材料", class: "form-control" %></div>
+    <div><%= f.text_field :quantity, placeholder: "分量", class: "form-control" %></div>
+    <div>
+      <%= link_to_remove_association "削除", f %>
+    </div>
+  </div>
+</div>

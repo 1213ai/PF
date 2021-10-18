@@ -1,0 +1,49 @@
+<div class="card py-5">
+   <div class="w-75 mx-auto mt-4 shadow-lg">
+     <div class= "my-3  ml-5">
+        <%= attachment_image_tag @recipe.user, :profile_image, :fill, 80, 80, fallback: "no_image.jpg", class:"mt-3 mr-3 rounded-circle" %>
+        <%= @recipe.user.name %>
+     </div>
+     
+     <div class ="mx-5 mb-3">料理名：<%= @recipe.title %></div>
+      <div class= "m-4"><%= attachment_image_tag @recipe, :image, :fill, 900, 400, format: 'jpeg' %></div>
+        <div class="card-body">
+        <div class="row">
+  		  <div class="col-10">
+          <p class="card-title">何人前：<%= @recipe.no_of_dish %></p>
+          <p class="card-text">説明：<%= @recipe.catchcopy %></p>
+          <div id="favorite-btn_<%= @recipe.id %>">
+            <%= render partial: 'favorites/favorite-btn', locals: { recipe: @recipe} %>
+          </div>
+
+           <%= render 'recipes/star', recipe: @recipe %>
+
+ <div>
+    <% @recipe_ingredients.each do |t| %>
+     <div><%= t.ing_name %></div>
+     <div><%= t.quantity %></div>
+    <% end %>
+  </div>
+    <% @how_to_makes.each do |t| %>
+      <div><%= t.explanation %></div>
+    <% end %>
+  </div>
+
+  <% if user_signed_in? && current_user.id == @recipe.user_id %>
+    <P><%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-success" %></P>
+    <P><%= link_to "Destroy", recipe_path(@recipe), class: "btn btn-danger", method: :delete, data: { confirm: '本当に消しますか？' }, "dete-confirm" =>"Are you sure?" %></P>
+  <% end %>
+
+
+  <%= render 'recipe_comments/index', recipe: @recipe,recipe_comment: @recipe_comment%>
+   <div class="m-auto">
+     <%= form_with model:[@recipe,@recipe_comment] do |f| %>
+       <%= f.text_area :comment, size:"90x5", class: "form-control" %>
+       <p class="mt-3"><%= f.submit '送信' %></p>
+    <% end %>
+   </div>
+         </div>
+        </div>
+      </div>
+    </div>
+  </div>
