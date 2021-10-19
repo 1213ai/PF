@@ -73,3 +73,8 @@ gem 'font-awesome-sass', '~> 5.13'
 
 # 動的フォーム
 gem 'cocoon'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end

@@ -1,0 +1,26 @@
+<% if @model == 'user'%>
+<% if @records != nil %>
+  <h3>users seach for "<%= @content %>"</h3>
+  <div>
+   <% @records.each do |user| %>
+     <div><%= attachment_image_tag user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size:'40x40' %></div>
+     <%= link_to user_path(user.id) do %>
+        <p><%= user.name %></p>
+        <% end %>
+      <P><%= link_to "show", user_path(user.id) %></P>
+      <% end %>
+  </div>
+   <% end %>
+   
+  <% else @model == 'recipes' %>
+  <h3> recipes search for "<%= @content %>"</h3>
+    <div>
+      <% @records.each do |recipe| %>
+       <P><%= attachment_image_tag recipe.user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size:'40x40' %></P>
+        <%= link_to recipe_path(recipe.id) do %>
+         <P><%= recipe.title %></P>
+            <% end %>
+      <P><%= recipe.catchcopy %></P>
+      <% end %>
+    </div>
+  <% end %>
