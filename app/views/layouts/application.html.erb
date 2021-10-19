@@ -12,9 +12,9 @@
 
   <body>
 
- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+ <nav class="navbar navbar-expand-lg navbar-light">
    <div class="container">
-  <a class="navbar-brand" href="/">Takunomi</a>
+  <a class="navbar-brand" href="/"><%= image_tag('logo.png') %></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -29,7 +29,7 @@
       <% else %>
        <a><%= link_to "新規登録", new_user_registration_path, class: "nav-item nav-link active" %></a>
        <a><%= link_to "ログイン", new_user_session_path, class: "nav-item nav-link active" %></a>
-       <a><%= link_to '一覧', recipes_path, class: "nav-item nav-link active" %></a>
+       <a><%= link_to '皆の投稿', recipes_path, class: "nav-item nav-link active" %></a>
       <% end %>
       </div>
     </div>

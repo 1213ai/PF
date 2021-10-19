@@ -2,7 +2,7 @@
    <div class="w-75 mx-auto mt-4 shadow-lg">
      <div class= "my-3  ml-5">
         <%= attachment_image_tag @recipe.user, :profile_image, :fill, 80, 80, fallback: "no_image.jpg", class:"mt-3 mr-3 rounded-circle" %>
-        <%= @recipe.user.name %>
+        by. <%= @recipe.user.name %>
      </div>
      
      <div class ="mx-5 mb-3">料理名：<%= @recipe.title %></div>
