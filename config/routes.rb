@@ -10,9 +10,11 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     resources :recipe_comments, only: [:create, :destroy]
   end
-  
-  get 'search' => 'recipes#search'
-  
+
+  get 'search' => 'recipes#search' #ソート機能
+
+  get 'all_search' => 'searchs#all_search' #検索機能
+
   resources :tags do
     get 'recipes', to: 'recipes#tag_search'
   end

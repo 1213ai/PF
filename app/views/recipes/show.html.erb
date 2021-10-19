@@ -16,7 +16,7 @@
             <%= render partial: 'favorites/favorite-btn', locals: { recipe: @recipe} %>
           </div>
 
-           <%= render 'recipes/star', recipe: @recipe %>
+           <%= render 'recipes/show_star', recipe: @recipe %>
 
  <div>
     <% @recipe_ingredients.each do |t| %>
@@ -34,8 +34,9 @@
     <P><%= link_to "Destroy", recipe_path(@recipe), class: "btn btn-danger", method: :delete, data: { confirm: '本当に消しますか？' }, "dete-confirm" =>"Are you sure?" %></P>
   <% end %>
 
-
-  <%= render 'recipe_comments/index', recipe: @recipe,recipe_comment: @recipe_comment%>
+ <div class="recipe_comments">
+   <%= render 'recipe_comments/index', recipe: @recipe,recipe_comment: @recipe_comment%>
+ </div>
    <div class="m-auto">
      <%= form_with model:[@recipe,@recipe_comment] do |f| %>
        <%= f.text_area :comment, size:"90x5", class: "form-control" %>
