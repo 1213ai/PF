@@ -1,23 +1,38 @@
 
-<div class="card py-5">
-　<div class="w-75 mx-auto mt-4 shadow-lg">
-　　<h2>レシピを書く</h2>
-　　　<%= form_with model: @recipe, local:true do |f| %>
-　　<div class="row">
-     <div class="col-sm-6">
-       <p>タグ<%= f.text_field :tag_name %></p>
-　　　<p>画像<%= f.attachment_field :image %></p>
-　　　<p>料理名 <%= f.text_field :title, class: "form-control" %></p>
-      <div>
-          <p>説明</p>
-          <p><%= f.text_area :catchcopy, class: "form-control" %></p>
+  <%= form_with model: @recipe, local:true do |f| %>
+   <div class="container w-75">
+      <h2>レシピを書く</h2>
+      <div class="my-3 ">
+       <label for="RecipeTitle">レシピタイトル</label>
+       <div><%= f.text_field :title, placeholder: "レシピタイトル", class: "form-control" %></div>
       </div>
-      <p>何人前 <%= f.text_field :no_of_dish, class: "form-control" %></p>
-    </div>
+
+       <div class="row">
+         <div class="col-md-6 mb-3">
+           <label for="NumberOfPeople">人数</label>
+              <div><%= f.text_field :no_of_dish, placeholder: "２人分", class: "form-control" %></div>
+        　 </div>
+           <div class="col-md-6 mb-3">
+             <label for="Tag">タグ</label>
+                <div>
+                 <%= f.text_field :tag_name,placeholder: "お酒の名前を記入して下さい", class: "form-control" %>
+                </div>
+            </div>
+        </div>
+
+       <div class="mb-3">
+          <label for="CatchCopy">キャッチコピー</label>
+          <div><%= f.text_area :catchcopy, placeholder: "キャッチコピー入力（検索結果の画面にも表示されます）", class: "form-control" %></div>
+        </div>
+
+       <div class="mb-3">
+          <label for="Image">イメージ</label>
+          <div><%= f.attachment_field :image %></div>
+        </div>
+
 
 
  <!--☆の評価-->
- <div class="col-sm-6">
   <div class="star-form-group" id="star1">
     <%= f.label :sweetness,'甘', class:'star-title' %>
     <script>
@@ -87,8 +102,6 @@
      });
    </script>
   </div>
-  </div>
-
 
   <!--材料・量の入力フォーム-->
      <div class="recipe-ingredients">
@@ -99,7 +112,7 @@
       </div>
 
       <div>
-        <%= link_to_add_association "+フォームを追加", f, :recipe_ingredients%>
+        <%= link_to_add_association "+フォームを追加", f, :recipe_ingredients, class: "btn btn-outline-warning w-100" %>
       </div>
     </div>
 
@@ -110,14 +123,14 @@
           <%= render "recipes/how_to_make_fields", f: t %>
         <% end %>
       </div>
-       <div>
-        <%= link_to_add_association "+フォームを追加", f, :how_to_makes %>
+      <div class="container w-75">
+        <%= link_to_add_association "+フォームを追加", f, :how_to_makes, class: "btn btn-outline-warning w-100 mt-2" %>
       </div>
     </div>
-    <div class="col-sm-6"><%= f.submit '投稿' %></div>
-      
-    <% end %>
+
+   <div class="text-center">
+     <button type="submit" class="btn btn-warning w-75 my-5 ml-2">投稿</button>
    </div>
-  </div>
  </div>
-</div>
+<% end %>
+
