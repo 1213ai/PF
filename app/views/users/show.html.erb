@@ -9,22 +9,23 @@
        <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
       <% end %>
  </div>
- 
+
 
 <!--My投稿一覧-->
 <% @user.recipes.each do |recipe| %>
-<div class="card mb-5 w-75 mx-auto shadow-lg">
-  <div class="row no-gutters">
-    <div class="col-md-4">
-      <div class="img-container"><%= attachment_image_tag recipe, :image, format: 'jpeg' %></div>
+<div class="card mb-5 w-75  mx-auto shadow-lg">
+  <div class="row">
+    <div class="col-lg-5-md-6-sm-6">
+      <div class="img-container"><%= attachment_image_tag recipe, :image, :fill, 300, 300, fallback: "pngtree.jpg", size:'300x300' %></div>
     </div>
-    <div class="col-md-8">
+    <div class="col-lg-7-md-6-sm-6">
       <div class="card-body">
-        <h5 class="card-title">料理名<%= link_to recipe_path(recipe.id) do %>
+         <h5 class="card-title ml-5">料理名<%= link_to recipe_path(recipe.id) do %>
                                 <%= recipe.title %>
-                              <% end %>
+                                <% end %>
         </h5>
-        <p class="card-text"><%= recipe.catchcopy %></p>
+        <div class="card-text ml-5">人数分<%= recipe.no_of_dish %></div>
+        <div class="text ml-5 mt-2"><%= recipe.catchcopy %></div>
       </div>
     </div>
   </div>

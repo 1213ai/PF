@@ -1,129 +1,123 @@
-<div class="card py-5">
-  <div class="w-75 mx-auto mt-4 shadow-lg">
-   <div class="card-body">
-    <div class="row">
-    <h3 class= m-2>レシピを書く</h3>
-    <div class="col-sm-12">
-    <%= form_with model: @recipe, local:true do |f| %>
-        <div class="mb-3">料理名
-          <div><%= f.text_field :title, class: "form-control" %></div>
-        </div>
-        <div class="mb-3">タグ
-          <div><%= f.text_field :tag_name, class: "form-control" %></div>
-        </div>
-        <div class="mb-3">内容
-          <div><%= f.text_area :catchcopy, class: "form-control" %></div>
-          </div>
-        <div class="mb-3">画像 <%= f.attachment_field :image %></div>
-        <div class="mb-3">何人前
-          <div><%= f.text_field :no_of_dish, class: "form-control" %></div>
-        </div>
 
-       <!--☆の評価-->
-       <div class="mb-3">
-         <p>味パラメータ</p>
-        <div class="star-form-group" id="star1">
-          <%= f.label :sweetness,'甘', class:'star-title' %>
-          <script>
-           $('#star1').raty({
-             size     : 36,                                  //☆のサイズ
-             starOff:  '<%= asset_path('star-off.png') %>',  //imagesフォルダより画像を呼び出し
-             starOn : '<%= asset_path('star-on.png') %>',
-             starHalf: '<%= asset_path('star-half.png') %>',
-             scoreName: 'recipe[sweetness]',                 //reviewモデルのcomfortカラムに保存
-             half: true,                                     //星半分を許可する。DBには0.5単位の数値が保存される
-           });
-         </script>
-        </div>
-  
-        <div class="star-form-group" id="star2">
-          <%= f.label :spicy,'辛', class:'star-title' %>
-         <script>
-           $('#star2').raty({
-             size     : 36,
-             starOff:  '<%= asset_path('star-off.png') %>',
-             starOn : '<%= asset_path('star-on.png') %>',
-             starHalf: '<%= asset_path('star-half.png') %>',
-             scoreName: 'recipe[spicy]',
-             half: true,
-           });
-         </script>
-        </div>
-  
-        <div class="star-form-group" id="star3">
-          <%= f.label :salty,'塩', class:'star-title' %>
-          <script>
-           $('#star3').raty({
-             size     : 36,
-             starOff:  '<%= asset_path('star-off.png') %>',
-             starOn : '<%= asset_path('star-on.png') %>',
-             starHalf: '<%= asset_path('star-half.png') %>',
-             scoreName: 'recipe[salty]',
-             half: true,
-            });
-         </script>
-        </div>
-  
-        <div class="star-form-group" id="star4">
-          <%= f.label :bitter_taste,'渋', class:'star-title' %>
-          <script>
-           $('#star4').raty({
-             size     : 36,
-             starOff:  '<%= asset_path('star-off.png') %>',
-             starOn : '<%= asset_path('star-on.png') %>',
-             starHalf: '<%= asset_path('star-half.png') %>',
-             scoreName: 'recipe[bitter_taste]',
-             half: true,
-           });
-         </script>
-        </div>
-  
-        <div class="star-form-group" id="star5">
-          <%= f.label :acidity,'酸', class:'star-title' %>
-          <script>
-           $('#star5').raty({
-             size     : 36,
-             starOff:  '<%= asset_path('star-off.png') %>',
-             starOn : '<%= asset_path('star-on.png') %>',
-             starHalf: '<%= asset_path('star-half.png') %>',
-             scoreName: 'recipe[acidity]',
-             half: true,
-           });
-         </script>
-        </div>
+<div class="card py-5">
+　<div class="w-75 mx-auto mt-4 shadow-lg">
+　　<h2>レシピを書く</h2>
+　　　<%= form_with model: @recipe, local:true do |f| %>
+　　<div class="row">
+     <div class="col-sm-6">
+       <p>タグ<%= f.text_field :tag_name %></p>
+　　　<p>画像<%= f.attachment_field :image %></p>
+　　　<p>料理名 <%= f.text_field :title, class: "form-control" %></p>
+      <div>
+          <p>説明</p>
+          <p><%= f.text_area :catchcopy, class: "form-control" %></p>
+      </div>
+      <p>何人前 <%= f.text_field :no_of_dish, class: "form-control" %></p>
+    </div>
+
+
+ <!--☆の評価-->
+ <div class="col-sm-6">
+  <div class="star-form-group" id="star1">
+    <%= f.label :sweetness,'甘', class:'star-title' %>
+    <script>
+     $('#star1').raty({
+       size     : 36,                                  //☆のサイズ
+       starOff:  '<%= asset_path('star-off.png') %>',  //imagesフォルダより画像を呼び出し
+       starOn : '<%= asset_path('star-on.png') %>',
+       starHalf: '<%= asset_path('star-half.png') %>',
+       scoreName: 'recipe[sweetness]',                 //reviewモデルのcomfortカラムに保存
+       half: true,                                     //星半分を許可する。DBには0.5単位の数値が保存される
+     });
+   </script>
+  </div>
+
+  <div class="star-form-group" id="star2">
+    <%= f.label :spicy,'辛', class:'star-title' %>
+   <script>
+     $('#star2').raty({
+       size     : 36,
+       starOff:  '<%= asset_path('star-off.png') %>',
+       starOn : '<%= asset_path('star-on.png') %>',
+       starHalf: '<%= asset_path('star-half.png') %>',
+       scoreName: 'recipe[spicy]',
+       half: true,
+     });
+   </script>
+  </div>
+
+  <div class="star-form-group" id="star3">
+    <%= f.label :salty,'塩', class:'star-title' %>
+    <script>
+     $('#star3').raty({
+       size     : 36,
+       starOff:  '<%= asset_path('star-off.png') %>',
+       starOn : '<%= asset_path('star-on.png') %>',
+       starHalf: '<%= asset_path('star-half.png') %>',
+       scoreName: 'recipe[salty]',
+       half: true,
+      });
+   </script>
+  </div>
+
+  <div class="star-form-group" id="star4">
+    <%= f.label :bitter_taste,'渋', class:'star-title' %>
+    <script>
+     $('#star4').raty({
+       size     : 36,
+       starOff:  '<%= asset_path('star-off.png') %>',
+       starOn : '<%= asset_path('star-on.png') %>',
+       starHalf: '<%= asset_path('star-half.png') %>',
+       scoreName: 'recipe[bitter_taste]',
+       half: true,
+     });
+   </script>
+  </div>
+
+  <div class="star-form-group" id="star5">
+    <%= f.label :acidity,'酸', class:'star-title' %>
+    <script>
+     $('#star5').raty({
+       size     : 36,
+       starOff:  '<%= asset_path('star-off.png') %>',
+       starOn : '<%= asset_path('star-on.png') %>',
+       starHalf: '<%= asset_path('star-half.png') %>',
+       scoreName: 'recipe[acidity]',
+       half: true,
+     });
+   </script>
+  </div>
+  </div>
+
+
+  <!--材料・量の入力フォーム-->
+     <div class="recipe-ingredients">
+      <div>
+        <%= f.fields_for :recipe_ingredients do |t| %>
+          <%= render "recipes/recipe_ingredient_fields", f: t %>
+        <% end %>
       </div>
 
-      <!--材料・量の入力フォーム-->
-         <div class="recipe-ingredients">
-          <div>
-            <%= f.fields_for :recipe_ingredients do |t| %>
-              <%= render "recipes/recipe_ingredient_fields", f: t %>
-            <% end %>
-          </div>
-
-          <div>
-            <%= link_to_add_association "+フォームを追加", f, :recipe_ingredients%>
-          </div>
-        </div>
-
-      <!--手順の入力フォーム-->
-        <div class="how-to-makes">
-          <div>
-            <%= f.fields_for :how_to_makes do |t| %>
-              <%= render "recipes/how_to_make_fields", f: t %>
-            <% end %>
-          </div>
-           <div>
-            <%= link_to_add_association "+フォームを追加", f, :how_to_makes %>
-          </div>
-        </div>
-        
-        <div class="m-3"><%= f.submit '投稿' %></div>
-
-        
-          </div>
-         </div>
+      <div>
+        <%= link_to_add_association "+フォームを追加", f, :recipe_ingredients%>
       </div>
     </div>
+
+  <!--手順の入力フォーム-->
+    <div class="how-to-makes">
+      <div>
+        <%= f.fields_for :how_to_makes do |t| %>
+          <%= render "recipes/how_to_make_fields", f: t %>
+        <% end %>
+      </div>
+       <div>
+        <%= link_to_add_association "+フォームを追加", f, :how_to_makes %>
+      </div>
+    </div>
+    <div class="col-sm-6"><%= f.submit '投稿' %></div>
+      
+    <% end %>
+   </div>
   </div>
- <% end %>
+ </div>
+</div>

@@ -1,29 +1,38 @@
-<div>
-    <div>
-      <div class="star-group">
-        <div class="detail-review">甘</div>
-        <div class="detail-value", id="star1-<%= recipe.id %>"></div>
-     </div>
-     <script>
-       $('#star1-<%=recipe.id %>').raty({
-        size: 36,
-        starOff: "<%= asset_path('star-off.png') %>",
-        starOn: "<%= asset_path('star-on.png') %>",
-        starHalf: "<%= asset_path('star-half.png') %>",
-        half: true,
-        readOnly: true,
-        score: <%= recipe.sweetness %>,
-       });
-     </script>
-     <%= recipe.sweetness %>
-    </div>
 
-    <div>
-     <div class="star-group">
+<div class="card-group">
+  <div class="card border-0">
+    <div class="card-body">
+      <div class="card-title">
+        <div class="star-group">
+         <div class="detail-review">甘</div>
+         <div class="detail-value", id="star1-<%= recipe.id %>"></div>
+        </div>
+      </div>
+      <div class="card-text">
+       <script>
+         $('#star1-<%=recipe.id %>').raty({
+          size: 36,
+          starOff: "<%= asset_path('star-off.png') %>",
+          starOn: "<%= asset_path('star-on.png') %>",
+          starHalf: "<%= asset_path('star-half.png') %>",
+          half: true,
+          readOnly: true,
+          score: <%= recipe.sweetness %>,
+         });
+       </script>
+      </div>
+    </div>
+  </div>
+  <div class="card border-0">
+    <div class="card-body">
+      <div class="card-title">
+        <div class="star-group">
         <div class="detail-review">辛</div>
         <div class="detail-value", id="star2-<%= recipe.id %>"></div>
-     </div>
-     <script>
+        </div>
+      </div>
+      <div class="card-text">
+      <script>
         $('#star2-<%= recipe.id %>').raty({
          size: 36,
          starOff: "<%= asset_path('star-off.png') %>",
@@ -33,15 +42,19 @@
          readOnly: true,
          score: <%= recipe.spicy %>,
         });
-     </script>
-      <%= recipe.spicy %>
-   </div>
-
-   <div>
-     <div class="star-group">
-       <div class="detail-review">塩</div>
+      </script>
+      </div>
+    </div>
+  </div>
+   <div class="card border-0">
+    <div class="card-body">
+      <div class="card-title">
+      <div class="star-group">
+      <div class="detail-review">塩</div>
        <div class="detail-value", id="star3-<%= recipe.id %>"></div>
       </div>
+      </div>
+      <div class="card-text">
       <script>
         $('#star3-<%= recipe.id %>').raty({
           size: 36,
@@ -53,15 +66,19 @@
           score: <%= recipe.salty %>,
         });
      </script>
-      <%= recipe.salty %>
-   </div>
-
-   <div>
-      <div class="star-group">
+      </div>
+    </div>
+  </div>
+  <div class="card border-0">
+    <div class="card-body">
+      <div class="card-title">
+       <div class="star-group">
         <div class="detail-review">渋</div>
         <div class="detail-value", id="star4-<%= recipe.id %>"></div>
+      </div>       
       </div>
-      <script>
+      <div class="card-text">
+        <script>
        $('#star4-<%= recipe.id %>').raty({
          size: 36,
          starOff: "<%= asset_path('star-off.png') %>",
@@ -72,15 +89,19 @@
          score: <%= recipe.bitter_taste %>,
         });
       </script>
-      <%= recipe.bitter_taste %>
-   </div>
-
-   <div>
-     <div class="star-group">
+      </div>
+    </div>
+  </div>
+    <div class="card border-0">
+    <div class="card-body">
+      <div class="card-title">
+       <div class="star-group">
         <div class="detail-review">酸</div>
         <div class="detail-value", id="star5-<%= recipe.id %>"></div>
-     </div>
-     <script>
+     </div>      
+      </div>
+      <div class="card-text">
+      <script>
        $('#star5-<%= recipe.id %>').raty({
          size: 36,
          starOff: "<%= asset_path('star-off.png') %>",
@@ -90,7 +111,11 @@
          readOnly: true,
          score: <%= recipe.acidity %>,
         });
-     </script>
-      <%= recipe.acidity %>
-   </div>
+       </script>
+      </div>
+    </div>
+  </div>
 </div>
+
+
+
