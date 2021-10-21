@@ -65,7 +65,9 @@
     <div class="w-75 mx-auto mt-5">
       <%= form_with model:[@recipe,@recipe_comment] do |f| %>
        <%= f.text_area :comment, placeholder: "コメント入力フォーム", size:"90x5", class: "form-control" %>
-       <p class="mt-3"><%= f.submit '送信' %></p>
+      <div class="text-center">
+       <button type="submit" class="btn btn-outline-warning w-75 my-3">コメントを送る</button>
+      </div>
       <% end %>
     </div>
 

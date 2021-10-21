@@ -1,3 +1,30 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+img.sized {
+  width: 100%;
+  height: 550px;
+}
+
+.carousel-item h1  {
+  font-size: 500%;
+  text-shadow: 1px 1px 15px #000;
+  color: #ffffff;
+}
+
+.top-textp {
+  text-shadow: 1px 1px 15px #000;
+  color: #ffffff;
+}
+
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.item {
+  width: 140px;
+  height: 140px;
+  border: 2px solid gray;
+}
