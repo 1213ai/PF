@@ -1,0 +1,11 @@
+<%= render 'select_form' %>
+
+<%= render 'searchs/form' %>
+
+<h3 class="text-center"> タグリスト</h3>
+  <% @tag_list.each do |list| %>
+  <div class= "text-center">
+    <%= link_to list.tag_name, tag_recipes_path(tag_id: list.id), class: "tag-text" %>
+    <%= "(#{list.recipes.count})" %>
+  <% end %>
+</div>

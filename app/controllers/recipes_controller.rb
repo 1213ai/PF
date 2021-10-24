@@ -20,7 +20,10 @@ class RecipesController < ApplicationController
   def index
     @recipes = Recipe.all
     @user = current_user
-    @tag_list = Tag.all              #ビューでタグ一覧を表示するために全取得。
+  end
+  
+  def tag_index
+     @tag_list = Tag.all              #ビューでタグ一覧を表示するために全取得。
   end
 
   def create

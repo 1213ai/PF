@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     resources :recipe_comments, only: [:create, :destroy]
   end
+  
+  get 'tag_index',to: 'recipes#tag_index'
 
   get 'search' => 'recipes#search' #ソート機能
 

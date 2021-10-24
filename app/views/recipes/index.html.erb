@@ -1,16 +1,5 @@
-
-
-<%= render 'select_form' %>
-
-<%= render 'searchs/form' %>
-
-
 <div>
-  <% @tag_list.each do |list| %>
-    <%= link_to list.tag_name, tag_recipes_path(tag_id: list.id) %>
-    <%= "(#{list.recipes.count})" %>
-  <% end %>
+<%= render 'searchs/form' %>
 </div>
 
-　
 <%= render 'result', recipe: @recipe %>

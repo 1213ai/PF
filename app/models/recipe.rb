@@ -15,6 +15,8 @@ class Recipe < ApplicationRecord
   has_many :tag_maps, dependent: :destroy
   has_many :tags, through: :tag_maps
 
+  validates :sweetness, :spicy, :salty, :bitter_taste, :acidity, presence: true
+
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
@@ -36,7 +38,7 @@ class Recipe < ApplicationRecord
       return find(Favorite.group(:recipe_id).order(Arel.sql('count(recipe_id) asc')).pluck(:recipe_id))
     end
   end
-  
+
   def save_tag(sent_tags)
     current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?
     old_tags = current_tags - sent_tags
@@ -49,5 +51,5 @@ class Recipe < ApplicationRecord
       self.tags << recipe_tag
     end
   end
-  
+
 end
