@@ -4,7 +4,7 @@
       <h3><%= @user.name %></h3>
       <p><%= render 'users/info', user: @user %></p>
       <p class="lead">- - - - -introduction- - - - - -</p>
-      
+      <p><%= @user.introduction %></p>
       <% if @user.id == current_user.id %>
        <p><%= link_to edit_user_path(@user), class:"font-color" do %>
           <i class="fas fa-user-edit"></i>

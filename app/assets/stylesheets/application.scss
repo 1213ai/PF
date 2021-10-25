@@ -30,13 +30,9 @@
   background-color: #FFCC00;
 }
 
-#error_explanation {
-  color: red;
+.errors {
+  color: white;
+  background-color: red;
 }
 
-div.field_with_errors {
-    padding: 0.5em 1em;
-    color: #2c2c2f;
-    background: red;
-}
 
