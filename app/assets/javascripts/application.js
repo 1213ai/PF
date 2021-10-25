@@ -20,3 +20,18 @@
 //= require turbolinks
 //= require_tree .
 //= require cocoon
+/*global $*/
+
+$(document).on('turbolinks:load', function() {
+
+$(function() {
+    $(".variable").slick({
+        dots: true,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        pauseOnFocus: false,
+        pauseOnHover: false,
+        pauseOnDotsHover: false
+    });
+　});
+});
