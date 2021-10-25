@@ -1,0 +1,18 @@
+ja:
+  activerecord:
+    models:
+      recipe: レシピ
+      user: ユーザー
+    attributes:
+      recipe:
+        title: ※タイトル
+        catchcopy: ※キャッチコピー
+        sweetness: ※甘さ
+        spicy: ※辛さ
+        salty: ※塩味
+        bitter_taste: ※苦さ
+        acidity: ※酸っぱさ
+      user:
+        email: ※メールアドレス
+        password: ※パスワード
+        name: ※名前
