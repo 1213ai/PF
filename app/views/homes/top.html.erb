@@ -1,5 +1,18 @@
 <div>
-<div class= "">
+  
+  <section class="text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">WelcoMe</h1>
+        <%= image_tag 'logotop.png' %>
+        <p class="lead text-muted">お酒好きのためのレシピサイトです。登録せずに閲覧できますが、登録するとMyレシピが投稿できます。</p>
+
+      </div>
+    </div>
+  </section>
+  
+  
+
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -7,21 +20,21 @@
       <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
     </ol>
     <div class="carousel-inner">
-     <div class="carousel-item active">
+     <div class="carousel-item active text-center">
        <%= image_tag 'stella-de-smit-nCxCBnK6UKQ-unsplash.jpg', class: 'sized' %>
        <div class="carousel-caption d-none d-md-block">
           <h1>Takunomi Menu</h1>
           <p class="top-text">お酒好きのためのレシピサイトです</p>
        </div>
      </div>
-     <div class="carousel-item">
+     <div class="carousel-item text-center">
         <%= image_tag 'lily-banse--YHSwy6uqvk-unsplash.jpg', class: 'sized' %>
        <div class="carousel-caption d-none d-md-block">
           <h1>Delicious is Happy</h1>
           <p class="top-text">おいしいと幸せな気持ちになります</p>
        </div>
      </div>
-     <div class="carousel-item">
+     <div class="carousel-item text-center">
        <%= image_tag 'brooke-lark-t7wg7BJU2-s-unsplash', class: 'sized' %>
        <div class="carousel-caption d-none d-md-block">
          <h1>Continue to Tomorrow</h1>
@@ -39,22 +52,7 @@
   </div>
 </div>
 
-
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">WelcoMe</h1>
-        <p class="lead text-muted">お酒好きのためのレシピサイトです。登録せずに閲覧できますが、登録するとMyレシピが投稿できます。</p>
-        <p>
-          <a><%= link_to "新規登録", new_user_registration_path, class: "btn btn btn-outline-warning my-2" %></a>
-          <a><%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-success my-2" %></a>
-        </p>
-      </div>
-    </div>
-  </section>
-
-
-  <div class="container marketing text-center ">
+  <div class="container marketing text-center mt-5 ">
     <div class="row mb-5">
       <div class="col-lg-4">
         <div><%= image_tag 'form.png', class: 'item bd-placeholder-img rounded-circle' %></div>

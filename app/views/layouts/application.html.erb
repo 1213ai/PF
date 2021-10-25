@@ -22,15 +22,15 @@
     <div class="navbar-nav">
 
        <% if user_signed_in? %>
-       <a><%= link_to 'Myページ', user_path(current_user.id), class: "nav-item nav-link active" %></a>
-       <a><%= link_to 'レシピを書く', new_recipe_path, class: "nav-item nav-link active" %></a>
-       <a><%= link_to '皆の投稿', recipes_path, class: "nav-item nav-link active" %></a>
-       <a><%= link_to '検索', tag_index_path, class: "nav-item nav-link active" %></a>
-       <a><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-item nav-link active" %></a>
+       <a><%= link_to 'MyPage', user_path(current_user.id), class: "nav-item nav-link text-white" %></a>
+       <a><%= link_to 'WriteRecipe', new_recipe_path, class: "nav-item nav-link text-white" %></a>
+       <a><%= link_to 'Recipes', recipes_path, class: "nav-item nav-link text-white" %></a>
+       <a><%= link_to 'Search', tag_index_path, class: "nav-item nav-link text-white" %></a>
+       <a><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-item nav-link text-white" %></a>
       <% else %>
-       <a><%= link_to "新規登録", new_user_registration_path, class: "nav-item nav-link active" %></a>
-       <a><%= link_to "ログイン", new_user_session_path, class: "nav-item nav-link active" %></a>
-       <a><%= link_to '皆の投稿', recipes_path, class: "nav-item nav-link active" %></a>
+       <a><%= link_to "SignUp", new_user_registration_path, class: "nav-item nav-link text-white" %></a>
+       <a><%= link_to "Login", new_user_session_path, class: "nav-item nav-link text-white" %></a>
+       <a><%= link_to 'Recipe', recipes_path, class: "nav-item nav-link text-white" %></a>
       <% end %>
       </div>
     </div>
