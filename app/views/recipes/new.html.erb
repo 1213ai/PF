@@ -8,7 +8,7 @@
       <div class="my-3 ">
        <label for="RecipeTitle">レシピタイトル</label>
        <div><%= f.text_field :title, placeholder: "レシピタイトル", class: "form-control" %></div>
-        <div class="error-message">※ 入力必須です</div>
+       
       </div>
 
        <div class="row">
@@ -36,8 +36,14 @@
 
 
      <!--☆の評価-->
-      <div class="star-form-group" id="star1">
-        <%= f.label :sweetness,'甘', class:'star-title' %>
+ 
+<div class="card-group">
+  <div class="card border-0 m-4">
+    <div class="card-body">
+     <div class="card-text text-center">
+       <div class="star-form-group" id="star1">
+        <i class="fas fa-cookie-bite"><%= f.label :sweetness,'甘', class:'star-title' %></i>
+        </div>
         <script>
          $('#star1').raty({
            size     : 36,                                  //☆のサイズ
@@ -49,9 +55,14 @@
          });
        </script>
       </div>
-
-      <div class="star-form-group" id="star2">
-        <%= f.label :spicy,'辛', class:'star-title' %>
+    </div>
+  </div>
+  <div class="card border-0 m-4">
+    <div class="card-body">
+      <div class="card-text text-center">
+       <div class="star-form-group" id="star2">
+        <i class="fas fa-pepper-hot"><%= f.label :spicy,'辛', class:'star-title' %></i>
+      </div>
        <script>
          $('#star2').raty({
            size     : 36,
@@ -63,9 +74,14 @@
          });
        </script>
       </div>
-
+    </div>
+  </div>
+  <div class="card border-0 m-4">
+    <div class="card-body">
+     <div class="card-text text-center">
       <div class="star-form-group" id="star3">
-        <%= f.label :salty,'塩', class:'star-title' %>
+        <i class="fas fa-prescription-bottle"><%= f.label :salty,'塩', class:'star-title' %></i>
+      </div>
         <script>
          $('#star3').raty({
            size     : 36,
@@ -77,9 +93,14 @@
           });
        </script>
       </div>
-
-      <div class="star-form-group" id="star4">
-        <%= f.label :bitter_taste,'渋', class:'star-title' %>
+    </div>
+  </div>
+  <div class="card border-0 m-4">
+    <div class="card-body">
+      <div class="card-text text-center">
+    <div class="star-form-group" id="star4">
+       <i class="fas fa-wine-bottle"><%= f.label :bitter_taste,'苦', class:'star-title' %></i>
+      </div>
         <script>
          $('#star4').raty({
            size     : 36,
@@ -91,9 +112,14 @@
          });
        </script>
       </div>
-
-      <div class="star-form-group" id="star5">
-        <%= f.label :acidity,'酸', class:'star-title' %>
+    </div>
+  </div>
+    <div class="card border-0 m-4">
+    <div class="card-body">
+      <div class="card-text text-center">
+       <div class="star-form-group" id="star5">
+        <i class="fas fa-lemon"><%= f.label :acidity,'酸', class:'star-title' %></i>
+     </div>
         <script>
          $('#star5').raty({
            size     : 36,
@@ -105,6 +131,9 @@
          });
        </script>
       </div>
+    </div>
+  </div>
+</div>
 
       <!--材料・量の入力フォーム-->
          <div class="recipe-ingredients">
