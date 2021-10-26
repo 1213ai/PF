@@ -20,7 +20,7 @@
          <div class="col-md-6 mb-3">
            <label for="NumberOfPeople">人数</label>
               <div><%= f.text_field :no_of_dish, placeholder: "２人分", class: "form-control" %></div>
-        　 </div>
+        </div>
            <div class="col-md-6 mb-3">
              <label for="Tag">タグ</label>
                 <div>
@@ -45,22 +45,21 @@
 
 
      <!--☆の評価-->
-
         <div class="card-group">
           <div class="card border-0 m-4">
             <div class="card-body">
              <div class="card-text text-center">
                <div class="star-form-group" id="star1">
-                <i class="fas fa-cookie-bite"><%= f.label :sweetness,'甘', class:'star-title' %></i>
+                <i class="fas fa-cookie-bite sweet_star mr-1"></i>
                 </div>
                 <script>
                  $('#star1').raty({
-                   size     : 36,                                  //☆のサイズ
-                   starOff:  '<%= asset_path('star-off.png') %>',  //imagesフォルダより画像を呼び出し
+                   size     : 36,
+                   starOff:  '<%= asset_path('star-off.png') %>',
                    starOn : '<%= asset_path('star-on.png') %>',
                    starHalf: '<%= asset_path('star-half.png') %>',
-                   scoreName: 'recipe[sweetness]',                 //reviewモデルのcomfortカラムに保存
-                   half: true,                                     //星半分を許可する。DBには0.5単位の数値が保存される
+                   scoreName: 'recipe[sweetness]',
+                   half: true,
                  });
                </script>
               </div>
@@ -70,7 +69,7 @@
             <div class="card-body">
               <div class="card-text text-center">
                <div class="star-form-group" id="star2">
-                <i class="fas fa-pepper-hot"><%= f.label :spicy,'辛', class:'star-title' %></i>
+                <i class="fas fa-pepper-hot spicy_star mr-1"></i>
               </div>
                <script>
                  $('#star2').raty({
@@ -89,7 +88,7 @@
             <div class="card-body">
              <div class="card-text text-center">
               <div class="star-form-group" id="star3">
-                <i class="fas fa-prescription-bottle"><%= f.label :salty,'塩', class:'star-title' %></i>
+                <i class="fas fa-prescription-bottle salt_star mr-2"></i>
               </div>
                 <script>
                  $('#star3').raty({
@@ -108,7 +107,7 @@
             <div class="card-body">
               <div class="card-text text-center">
             <div class="star-form-group" id="star4">
-               <i class="fas fa-wine-bottle"><%= f.label :bitter_taste,'苦', class:'star-title' %></i>
+               <i class="fas fa-wine-bottle bitter_taste_star mr-1"></i>
               </div>
                 <script>
                  $('#star4').raty({
@@ -127,7 +126,7 @@
             <div class="card-body">
               <div class="card-text text-center">
                <div class="star-form-group" id="star5">
-                <i class="fas fa-lemon"><%= f.label :acidity,'酸', class:'star-title' %></i>
+                <i class="fas fa-lemon acidity_star mr-1"></i>
              </div>
                 <script>
                  $('#star5').raty({
@@ -143,6 +142,9 @@
             </div>
           </div>
         </div>
+        <P class="recipe-text">(※左から甘味,辛味,塩味,苦味,酸味となってます。すべて評価してから投稿をお願いします)</P>
+
+        <!--星評価のエラー分-->
         <% if @recipe.errors.include?(:sweetness) %>
           <p style="color: white; background-color: red;"><%= @recipe.errors.full_messages_for(:sweetness).first %>
         <% end %>

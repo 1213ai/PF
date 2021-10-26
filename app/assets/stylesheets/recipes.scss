@@ -8,8 +8,8 @@
   overflow: hidden;
 }
 
-.delete-btn a {
-  color: white;
+.recipe-text {
+  color: gray;
 }
 
 .link-color {
@@ -51,3 +51,36 @@
   border-radius: 15px;   
 }
 
+// 星評価のcss
+.sweet_star {
+  font-size: 1.3em;
+  color: #FFCC00;
+}
+
+.spicy_star {
+  font-size: 1.3em;
+  color: #FFCC00;
+}
+
+.salt_star{
+  font-size: 1.3em;
+  color: #FFCC00;
+}
+
+.bitter_taste_star {
+  font-size: 1.3em;
+  color: #FFCC00;
+}
+
+.acidity_star {
+  font-size: 1.3em;
+  color: #FFCC00;
+}
+
+.circle {
+  color: #FFCC00;
+}
+
+.star_text {
+  color: white;
+}

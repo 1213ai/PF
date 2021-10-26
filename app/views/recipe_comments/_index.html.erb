@@ -8,10 +8,10 @@
         <p class="name-text"><%= recipe_comment_user.name %></p>
         <% end %>
       </td>
-    
+
       <td><%= recipe_comment.comment %></br>
       	<% if current_user == recipe_comment_user %>
-        <%= link_to '↑削除する', recipe_recipe_comment_path(recipe_comment.recipe_id, recipe_comment.id),method: :delete, remote: true, class: "delete-btn badge rounded-pill bg-danger m-2 " %></td>
+        <%= link_to '↑削除する', recipe_recipe_comment_path(recipe_comment.recipe_id, recipe_comment.id),method: :delete, remote: true, class: "badge badge-pill badge-warning text-white m-2 " %></td>
       	<% end %>
      </tr>
 </tobody>

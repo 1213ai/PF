@@ -20,17 +20,19 @@
 @import "slick-theme"; 
 @import "slick";
 
-.nav-color  {
-  background-color: #FFCC00;
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
-.navbar-nav a {
-  font-size: 20px;
-  font-family: "Hiragino Sans","ヒラギノ角ゴシック"; font-weight: 900;
+
+.nav-text {
+  color: black;
 }
 
-.footer {
-  background-color: #FFCC00;
+.footer span {
+  color: #FFD700;
 }
 
 .errors {
