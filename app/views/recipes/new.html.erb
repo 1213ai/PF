@@ -5,17 +5,15 @@
 
  <!--投稿画面-->
   <%= form_with model: @recipe, local:true do |f| %>
-   <div class="container w-75">
+   <div class="container w-75 mt-5">
       <h2 class="far fa-clipboard">WriteRecipe</h2>
       <div class="my-3 ">
        <label for="RecipeTitle">レシピタイトル</label>
-       <div><%= f.text_field :title, placeholder: "レシピタイトル", class: "form-control" %></div>
+       <div><%= f.text_field :title, placeholder: "レシピタイトル", class: "form-control js-text-top" %></div>
+       <P class="js-text-top-count pull-right"></P>
        <% if @recipe.errors.include?(:title) %>
          <p style="color: white; background-color: red;"><%= @recipe.errors.full_messages_for(:title).first %>
        <% end %>
-       
-       
-       
       </div>
 
        <div class="row">
@@ -33,7 +31,8 @@
 
        <div class="mb-3">
           <label for="CatchCopy">キャッチコピー</label>
-          <div><%= f.text_area :catchcopy, placeholder: "キャッチコピー入力（検索結果の画面にも表示されます）", class: "form-control" %></div>
+          <div><%= f.text_area :catchcopy, placeholder: "キャッチコピー入力（検索結果の画面にも表示されます）", class: "form-control js-text" %></div>
+          <P class="js-text-count pull-right"></P>
         </div>
         <% if @recipe.errors.include?(:catchcopy) %>
          <p style="color: white; background-color: red;"><%= @recipe.errors.full_messages_for(:catchcopy).first %>
@@ -46,7 +45,7 @@
 
 
      <!--☆の評価-->
- 
+
         <div class="card-group">
           <div class="card border-0 m-4">
             <div class="card-body">

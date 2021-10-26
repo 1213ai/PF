@@ -1,5 +1,5 @@
 <%= form_with model: @recipe, url: search_path, method: :get, local: true do |form| %>
-<div class="text-left ml-5" >
+<div class="text-left ml-5 mt" >
   <div class="form-row ">
     <div class="col-sm-7">
       <%= form.select :keyword, [ ['投稿が新しい順', 'new'],

@@ -20,10 +20,12 @@ class RecipesController < ApplicationController
   def index
     @recipes = Recipe.all
     @user = current_user
+    @recipes = Recipe.page(params[:page]).reverse_order
   end
   
   def tag_index
      @tag_list = Tag.all              #ビューでタグ一覧を表示するために全取得。
+     @tag_list = Tag.page(params[:page]).reverse_order
   end
 
   def create

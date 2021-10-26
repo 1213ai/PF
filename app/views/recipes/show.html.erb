@@ -1,4 +1,4 @@
-<div class="container mt-3">
+<div class="container mt-5">
    <div class="text-center">
       <div class="d-block mx-auto mb-4"><%= attachment_image_tag @recipe, :image,:fill, 600, 600, fallback: "pngtree.jpg", class:"mt-3 mr-3 rounded-circle"%></div>
       <h3><%= @recipe.title %></h3>
@@ -8,7 +8,7 @@
            <% end %>
       </div>
       <% if user_signed_in? && current_user.id == @recipe.user_id %>
-    　　<P class="link-color"><%= link_to "編集", edit_recipe_path(@recipe) %> / <%= link_to "削除", recipe_path(@recipe), method: :delete, data: { confirm: '本当に消しますか？' }, "dete-confirm" =>"Are you sure?" %></P>
+    　　<P class="link-color"><%= link_to "Edit", edit_recipe_path(@recipe) %> / <%= link_to "Destroy", recipe_path(@recipe), method: :delete, data: { confirm: '本当に消しますか？' }, "dete-confirm" =>"Are you sure?" %></P>
   　　<% end %>
 
      <div class="card text-center w-75 mx-auto border-0">
@@ -70,6 +70,7 @@
     <div class="w-75 mx-auto mt-5">
       <%= form_with model:[@recipe,@recipe_comment] do |f| %>
        <%= f.text_area :comment, placeholder: "コメント入力フォーム", size:"90x5", class: "form-control" %>
+       <p>(150文字)</p>
       <div class="text-center">
        <button type="submit" class="btn btn-outline-warning w-75 my-3">コメントを送る</button>
       </div>

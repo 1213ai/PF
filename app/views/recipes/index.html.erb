@@ -1,5 +1,6 @@
-<div>
-<%= render 'searchs/form' %>
+<div class="my-4 searchs">
+ <%= render 'searchs/form' %>
 </div>
 
 <%= render 'result', recipe: @recipe %>
+<%= paginate @recipes %>
