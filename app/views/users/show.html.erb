@@ -4,9 +4,13 @@
       <h3><%= @user.name %></h3>
       <p><%= render 'users/info', user: @user %></p>
       <p class="lead">- - - - -introduction- - - - - -</p>
-      <p><%= @user.introduction %></p>
+      <div class="profile card w-75 mx-auto">
+        <div class ="card-body m-3">
+          <%= @user.introduction %>
+        </div>
+      </div>
       <% if @user.id == current_user.id %>
-       <p><%= link_to edit_user_path(@user), class:"font-color" do %>
+       <p class="mt-3"><%= link_to edit_user_path(@user),data: {"turbolinks" => false}, class:"font-color" do %>
           <i class="fas fa-user-edit"></i>
           <% end %>
        </p>
