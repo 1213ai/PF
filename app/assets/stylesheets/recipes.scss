@@ -30,25 +30,25 @@
 }
 
 .searchs {
- margin-left: 110px; 
+ margin-left: 110px;
 }
 
 .pagination {
   justify-content: center;
 }
 
-.pagination>li>a {          
-  border: none;     
-  color: #696969; 
+.pagination>li>a {
+  border: none;
+  color: #696969;
 }
 
-.pagination>.active>a {     
-  background: #93c9ff;     
-  border-radius: 15px;  
+.pagination>.active>a {
+  background: #93c9ff;
+  border-radius: 15px;
 }
 
-.pagination>li>a:hover {        
-  border-radius: 15px;   
+.pagination>li>a:hover {
+  border-radius: 15px;
 }
 
 // 星評価のcss
@@ -83,4 +83,73 @@
 
 .star_text {
   color: white;
+}
+
+
+
+.tag_text  {
+  position: relative;
+  display: inline-block;
+  height: 32px;
+  margin-left: 15px;
+  padding: 0.2rem 1rem 0.5rem 1.5rem;
+  color: #fff;
+  background: #FFCC00;
+  box-shadow: 2px 2px #668AD8;
+
+}
+
+.tag_text:before {
+  position: absolute;
+  top: 0;
+  left: -15px;
+  content: '';
+  border-width: 16px 15px 16px 0;
+  border-style: solid;
+  border-color: transparent #FFCC00 transparent transparent;
+}
+
+.tag_text:after {
+  position: absolute;
+  top: calc(50% - 7px);
+  left: -5px;
+  width: 14px;
+  height: 14px;
+  content: '';
+  border-radius: 50%;
+  background: #fff;
+}
+
+
+// タグ一覧
+.tag-color {
+  position: relative;
+  display: inline-block;
+  height: 64px;
+  margin-left: 30px;
+  padding: 1rem 2rem 1rem 3rem;
+  color: #fff;
+  background: #FFCC00;
+  box-shadow: 4px 4px #668AD8;
+}
+
+.tag-color:before {
+  position: absolute;
+  top: 0;
+  left: -30px;
+  content: '';
+  border-width: 32px 30px 32px 0;
+  border-style: solid;
+  border-color: transparent #FFCC00 transparent transparent;
+}
+
+.tag-color:after {
+  position: absolute;
+  top: calc(50% - 7px);
+  left: -10px;
+  width: 14px;
+  height: 14px;
+  content: '';
+  border-radius: 50%;
+  background: #fff;
 }

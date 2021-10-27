@@ -2,7 +2,6 @@ ja:
   activerecord:
     models:
       recipe: レシピ
-      user: ユーザー
     attributes:
       recipe:
         title: ※タイトル
@@ -12,7 +11,4 @@ ja:
         salty: ※塩味
         bitter_taste: ※苦さ
         acidity: ※酸っぱさ
-      user:
-        email: ※メールアドレス
-        password: ※パスワード
-        name: ※名前
+

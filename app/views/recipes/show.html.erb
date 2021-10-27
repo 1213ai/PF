@@ -8,12 +8,12 @@
            <% end %>
       </div>
       <% if user_signed_in? && current_user.id == @recipe.user_id %>
-    　　<P class="link-color"><%= link_to "Edit", edit_recipe_path(@recipe) %> / <%= link_to "Destroy", recipe_path(@recipe), method: :delete, data: { confirm: '本当に消しますか？' }, "dete-confirm" =>"Are you sure?" %></P>
-  　　<% end %>
+       <P class="link-color"><%= link_to "Edit", edit_recipe_path(@recipe), data: {"turbolinks" => false} %> / <%= link_to "Destroy", recipe_path(@recipe), method: :delete, data: { confirm: '本当に消しますか？' }, "dete-confirm" =>"Are you sure?" %></P>
+     <% end %>
 
      <div class="card text-center w-75 mx-auto border-0">
         <div class="card-body">
-         <h5 class="card-title">Cooking Description</h5>
+         <h5 class="card-title">- - - - - -Cooking Description- - - - - -</h5>
          <p class="card-text"><%= @recipe.catchcopy %></p>
          <div id="favorite-btn_<%= @recipe.id %>">
             <%= render partial: 'favorites/favorite-btn', locals: { recipe: @recipe} %>

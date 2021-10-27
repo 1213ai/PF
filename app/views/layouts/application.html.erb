@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     
+    
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -46,7 +47,11 @@
    <footer class="footer pt-4 pb-3 mt-5 border-top">
       <div class="container">
           <div class="text-center text-center">
-              <p>@thankyou</p>
+             <span id="top-btn">
+              <a href="#">
+              <%= image_tag asset_path('logotitle.png'), data: {"turbolinks"=>false}, class: "arrow" %>
+              </a>
+            </span>
           </div>
       </div>
     </footer>

@@ -22,6 +22,7 @@
 //= require cocoon
 /*global $*/
 
+
 $(document).on('turbolinks:load', function() {
 
 $(function() {
@@ -64,9 +65,9 @@ $(function (){
 $(function (){
   var count = $(".js-text-top").text().replace(/\n/g, "改行").length;
 
-  var now_count = 30 - count;
+  var now_count = 20 - count;
 
-  if (count > 30) {
+  if (count > 20) {
     $(".js-text-count").css("color","red");
   }
 
@@ -75,13 +76,22 @@ $(function (){
   $(".js-text-top").on("keyup", function() {
 
     var count = $(this).val().replace(/\n/g, "改行").length;
-    var now_count = 30 - count;
+    var now_count = 20 - count;
 
-    if (count > 30) {
+    if (count > 20) {
       $(".js-text-top-count").css("color","red");
     } else {
       $(".js-text-top-count").css("color","black");
     }
     $(".js-text-top-count").text( "残り" + now_count + "文字");
+  });
+});
+
+$(function() {
+  $('#top-btn a').on('click',function(event){
+    $('body, html').animate({
+      scrollTop:0
+    }, 1000);
+    event.preventDefault();
   });
 });
