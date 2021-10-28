@@ -2,9 +2,9 @@
    <div class="text-center">
       <div class="d-block mx-auto mb-4"><%= attachment_image_tag @recipe, :image,:fill, 600, 600, fallback: "pngtree.jpg", class:"mt-3 mr-3 rounded-circle"%></div>
       <h3><%= @recipe.title %></h3>
-      <div class="mt-4"><%= link_to user_path(@user.id) do %>
-          <div><%= attachment_image_tag @user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:'50x50', class:" rounded-circle" %></div>
-          <p class="link-color">by.<%= @user.name %></p>
+      <div class="mt-4"><%= link_to user_path(@recipe.user) do %>
+          <div><%= attachment_image_tag @recipe.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:'50x50', class:" rounded-circle" %></div>
+          <p class="link-color">by.<%= @recipe.user.name %></p>
            <% end %>
       </div>
       <% if user_signed_in? && current_user.id == @recipe.user_id %>
