@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'homes#top'
-  resources :users, only: [:show, :edit, :update] do
+  resources :users, only: [:show, :edit, :update, :index] do
     resource :relationships, only: [:create, :destroy]
     get 'followings' => 'relationships#followings', as: 'followings'
     get 'followers' => 'relationships#followers', as: 'followers'
@@ -11,11 +11,13 @@ Rails.application.routes.draw do
     resources :recipe_comments, only: [:create, :destroy]
   end
 
+  get 'tag_index',to: 'recipes#tag_index'
+
   get 'search' => 'recipes#search' #ソート機能
 
   get 'all_search' => 'searchs#all_search' #検索機能
 
   resources :tags do
-    get 'recipes', to: 'recipes#tag_search'
+    get 'recipes', to: 'recipes#tag_search'  #タグ一覧先
   end
 end

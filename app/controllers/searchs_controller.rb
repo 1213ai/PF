@@ -17,7 +17,7 @@ class SearchsController < ApplicationController
   end
 
    def forward(model, content)
-     if model == 'User'
+     if model == 'user'
        User.where("name LIKE ?", "#{content}%")
      elsif model == 'recipe'
        Recipe.where("title LIKE ?", "#{content}%")

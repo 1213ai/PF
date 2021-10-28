@@ -1,0 +1,17 @@
+<div class="mt-5">
+  <%= render 'select_form' %>
+</div>
+<div>
+  <%= render 'searchs/form' %>
+</div>
+
+<h3 class="ml-5 mt-2"><i class="fas fa-tags"></i> タグリスト</h3>
+  <% @tag_list.each do |list| %>
+
+    <p class="text-center tag-color m-5"><%= link_to list.tag_name, tag_recipes_path(tag_id: list.id), class: "tag-text" %><%= "(#{list.recipes.count})" %></p>
+
+  <% end %>
+
+<%= paginate @tag_list %>
+
+

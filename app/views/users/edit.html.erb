@@ -1,13 +1,24 @@
-<h2>プロフィール編集</h2>
-<%= form_with model:@user, local:true do |f| %>
-  <label for="inputName">Name</label>
-  <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%>
-  <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%>
-  <label for="inputImage">ProfileImage</label>
-  <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
-  <div class="form-group">
-   <label for="inputIntroduction">Introduction</label>
-   <div><%= f.text_area :introduction, autofocus: true, id:"inputIntroduction", placeholder:"Introduction", class: "form-control input-lg" %></div>
+<div class="container m-5">
+  <div class="row">
+    <div class="col-lo-8sm-7">
+      <h3>プロフィール編集</h3>
+       <%= form_with model:@user, local:true do |f| %>
+        <label for="inputName">Name</label>
+          <div class="mb-2"><%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前", class: "form-control js-text-top"%></div>
+          <P class="js-text-top-count pull-right"></P>
+          <div><%= attachment_image_tag @user, :profile_image, :fill, 150, 150, fallback: "no_image.jpg", class: "rounded-circle" %></div>
+        <label for="inputImage">プロフィール画像</label>
+          <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+        <div class="form-group">
+          <label for="inputIntroduction">Introduction</label>
+          <div><%= f.text_area :introduction, autofocus: true, id:"inputIntroduction", placeholder:"Introduction", class: "form-control input-lg js-text" %></div>
+          <P class="js-text-count pull-right"></P>
+        </div>
+        <div class="text-center">
+         <button type="submit" class="btn btn-warning w-75 my-5 ml-2">保存</button>
+        </div>
+        </div>
+        <% end %>
+     </div>
   </div>
-  <%= f.submit "保存" %>
-<% end %>
+</div>

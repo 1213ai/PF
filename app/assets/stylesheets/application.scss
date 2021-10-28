@@ -16,3 +16,28 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+@import "slick-theme"; 
+@import "slick";
+
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+
+.nav-text {
+  color: black;
+}
+
+.footer span {
+  color: #FFD700;
+}
+
+.errors {
+  color: white;
+  background-color: red;
+}
+
+

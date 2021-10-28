@@ -1,7 +1,15 @@
 <%= form_with model: @recipe, url: search_path, method: :get, local: true do |form| %>
-  <%= form.select :keyword, [ ['投稿が新しい順', 'new'],
-                            ['投稿が古い順', 'old'],
-                            ['いいねが多い順', 'likes'],
-                            ['いいねが少ない順', 'dislikes']] %>
-  <%= form.submit %>
+<div class="text-left ml-5 mt" >
+  <div class="form-row ">
+    <div class="col-sm-7">
+      <%= form.select :keyword, [ ['投稿が新しい順', 'new'],
+                                ['投稿が古い順', 'old'],
+                                ['いいねが多い順', 'likes'],
+                                ['いいねが少ない順', 'dislikes']], {}, {:class => "form-control"}  %>
+  　</div>
+    <div class="col">
+       <button type="form.submit" class="btn btn-outline-warning">変更</button>
+    </div>
   <% end %>
+ </div>
+</div>

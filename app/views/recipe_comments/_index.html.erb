@@ -1,15 +1,22 @@
 <% recipe.recipe_comments.each do |recipe_comment| %>
-  <% recipe_comment_user = recipe_comment.user %>
-  <tr>
-  	<td>
-  		<%= link_to user_path(recipe_comment_user), class: "user_#{recipe_comment_user.id}" do %>
-    		<%= attachment_image_tag recipe_comment_user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %><br>
-    		<%= recipe_comment_user.name %>
-  		<% end %>
-  	</td>
-  	<td><%= recipe_comment.comment %></td>
-  	<% if current_user == recipe_comment_user %>
-    	<td><%= link_to 'Destroy', recipe_recipe_comment_path(recipe_comment.recipe_id, recipe_comment.id), class: 'btn-sm btn-danger', method: :delete, remote: true %></td>
-  	<% end %>
-  </tr>
+   <% recipe_comment_user = recipe_comment.user %>
+ <tobody>
+    <tr>
+      <td>
+        <%= link_to user_path(recipe_comment_user), class: "user_#{recipe_comment_user.id}" do %>
+        <%= attachment_image_tag recipe_comment_user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", size: "60x60", class:"rounded-circle mr-3" %></br>
+        <p class="name-text"><%= recipe_comment_user.name %></p>
+        <% end %>
+      </td>
+
+      <td><%= recipe_comment.comment %></br>
+      	<% if current_user == recipe_comment_user %>
+        <%= link_to '↑削除する', recipe_recipe_comment_path(recipe_comment.recipe_id, recipe_comment.id),method: :delete, remote: true, class: "badge badge-pill badge-warning text-white m-2 " %></td>
+      	<% end %>
+     </tr>
+</tobody>
 <% end %>
+
+
+
+

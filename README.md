@@ -1,6 +1,4 @@
-# 宅飲み menu
-
-略して：タクメニ
+# TAKUNOMIMENU
 
 ## サイト概要
 
@@ -24,6 +22,8 @@
 宅飲みの時、メニューに迷ったとき、いつもと違った飲み方がしたいなと思ったとき。
 
 ## 設計書
+https://docs.google.com/spreadsheets/d/1bqqY65DNbk725gYhmr3g060q9xbsfi8PHmAuz36-uBg/edit?usp=sharing
+https://app.diagrams.net/#G1BZtWutN8WBpTHXuDzcaqzZEHee9BEjNd
 
 ## チャレンジ要素一覧
 
@@ -40,4 +40,8 @@ https://docs.google.com/spreadsheets/d/1bQKP41iIUxkmcyr2UEwHa9d9DgN5OMzYHcGMPg_f
 ## 使用素材
 
 - 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名と URL を明記してください。
-- 使用しない場合は、使用素材の項目を README から削除してください。
+- [designevo] https://www.designevo.com/
+- [Pinterest] https://www.pinterest.jp/
+- [Unsplash] https://unsplash.com/
+- [Font Awesome] https://fontawesome.com/
+- [codic] https://codic.jp/

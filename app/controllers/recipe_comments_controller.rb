@@ -5,9 +5,7 @@ class RecipeCommentsController < ApplicationController
 		@recipe_comment = RecipeComment.new(recipe_comment_params)
 		@recipe_comment.recipe_id = @recipe.id
 		@recipe_comment.user_id = current_user.id
-		if @recipe_comment.save
-  		redirect_to recipe_path(@recipe.id)
-		else
+		unless @recipe_comment.save
 		  render 'recipes/show'
 		end
 	end
@@ -16,7 +14,6 @@ class RecipeCommentsController < ApplicationController
 		@recipe = Recipe.find(params[:recipe_id])
   	recipe_comment = @recipe.recipe_comments.find(params[:id])
 		recipe_comment.destroy
-		redirect_to request.referer
 	end
 
 	private

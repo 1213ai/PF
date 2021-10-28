@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
- before_action :ensure_correct_user, only: [:edit]
- before_action :authenticate_user!, only: [:new]
+ before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+ before_action :authenticate_user!, only: [:new, :show]
 
   def new
     @recipe = Recipe.new
@@ -20,7 +20,12 @@ class RecipesController < ApplicationController
   def index
     @recipes = Recipe.all
     @user = current_user
-    @tag_list = Tag.all              #ビューでタグ一覧を表示するために全取得。
+    @recipes = Recipe.page(params[:page]).reverse_order
+  end
+  
+  def tag_index
+     @tag_list = Tag.all              #ビューでタグ一覧を表示するために全取得。
+     @tag_list = Tag.page(params[:page]).reverse_order
   end
 
   def create

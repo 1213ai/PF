@@ -1,50 +1,80 @@
-<div class="card py-5">
-   <div class="w-75 mx-auto mt-4 shadow-lg">
-     <div class= "my-3  ml-5">
-        <%= attachment_image_tag @recipe.user, :profile_image, :fill, 80, 80, fallback: "no_image.jpg", class:"mt-3 mr-3 rounded-circle" %>
-        <%= @recipe.user.name %>
-     </div>
-     
-     <div class ="mx-5 mb-3">料理名：<%= @recipe.title %></div>
-      <div class= "m-4"><%= attachment_image_tag @recipe, :image, :fill, 900, 400, format: 'jpeg' %></div>
+<div class="container mt-5">
+   <div class="text-center">
+      <div class="d-block mx-auto mb-4"><%= attachment_image_tag @recipe, :image,:fill, 600, 600, fallback: "pngtree.jpg", class:"mt-3 mr-3 rounded-circle"%></div>
+      <h3><%= @recipe.title %></h3>
+      <div class="mt-4"><%= link_to user_path(@user.id) do %>
+          <div><%= attachment_image_tag @user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:'50x50', class:" rounded-circle" %></div>
+          <p class="link-color">by.<%= @user.name %></p>
+           <% end %>
+      </div>
+      <% if user_signed_in? && current_user.id == @recipe.user_id %>
+       <P class="link-color"><%= link_to "Edit", edit_recipe_path(@recipe), data: {"turbolinks" => false} %> / <%= link_to "Destroy", recipe_path(@recipe), method: :delete, data: { confirm: '本当に消しますか？' }, "dete-confirm" =>"Are you sure?" %></P>
+     <% end %>
+
+     <div class="card text-center w-75 mx-auto border-0">
         <div class="card-body">
-        <div class="row">
-  		  <div class="col-10">
-          <p class="card-title">何人前：<%= @recipe.no_of_dish %></p>
-          <p class="card-text">説明：<%= @recipe.catchcopy %></p>
-          <div id="favorite-btn_<%= @recipe.id %>">
+         <h5 class="card-title">- - - - - -Cooking Description- - - - - -</h5>
+         <p class="card-text"><%= @recipe.catchcopy %></p>
+         <div id="favorite-btn_<%= @recipe.id %>">
             <%= render partial: 'favorites/favorite-btn', locals: { recipe: @recipe} %>
-          </div>
-
-           <%= render 'recipes/show_star', recipe: @recipe %>
-
- <div>
-    <% @recipe_ingredients.each do |t| %>
-     <div><%= t.ing_name %></div>
-     <div><%= t.quantity %></div>
-    <% end %>
-  </div>
-    <% @how_to_makes.each do |t| %>
-      <div><%= t.explanation %></div>
-    <% end %>
-  </div>
-
-  <% if user_signed_in? && current_user.id == @recipe.user_id %>
-    <P><%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-success" %></P>
-    <P><%= link_to "Destroy", recipe_path(@recipe), class: "btn btn-danger", method: :delete, data: { confirm: '本当に消しますか？' }, "dete-confirm" =>"Are you sure?" %></P>
-  <% end %>
-
- <div class="recipe_comments">
-   <%= render 'recipe_comments/index', recipe: @recipe,recipe_comment: @recipe_comment%>
- </div>
-   <div class="m-auto">
-     <%= form_with model:[@recipe,@recipe_comment] do |f| %>
-       <%= f.text_area :comment, size:"90x5", class: "form-control" %>
-       <p class="mt-3"><%= f.submit '送信' %></p>
-    <% end %>
-   </div>
          </div>
         </div>
-      </div>
+     </div>
     </div>
+
+    <!--☆評価-->
+    <div><%= render 'recipes/show_star', recipe: @recipe %></div>
+
+     <div class="my-3">
+      <p>【人数分】<%= @recipe.no_of_dish %></p>
+      <table class="table">
+          <thead>
+           <tr class="table-warning">
+             <th>食材</th>
+             <th>分量</th>
+           </tr>
+         </thead>
+        <tbody>
+        <% @recipe_ingredients.each do |t| %>
+          <tr>
+            <td><%= t.ing_name %></td>
+            <td><%= t.quantity %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <div>
+       <table class="table">
+          <thead>
+           <tr class="table-warning">
+             <th>手順</th>
+           </tr>
+         </thead>
+        <tbody>
+        <% @how_to_makes.each do |t| %>
+          <tr>
+            <td><%= t.explanation %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+     </div>
+
+  　<!--コメント-->
+    <table class="recipe_comments table">
+      <%= render 'recipe_comments/index', recipe: @recipe,recipe_comment: @recipe_comment%>
+    </table>
+
+    <div class="w-75 mx-auto mt-5">
+      <%= form_with model:[@recipe,@recipe_comment] do |f| %>
+       <%= f.text_area :comment, placeholder: "コメント入力フォーム", size:"90x5", class: "form-control" %>
+       <p>(150文字)</p>
+      <div class="text-center">
+       <button type="submit" class="btn btn-outline-warning w-75 my-3">コメントを送る</button>
+      </div>
+      <% end %>
+    </div>
+
   </div>
