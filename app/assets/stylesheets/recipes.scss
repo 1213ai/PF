@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .catchcopy {
-  width: 350px;
+  width: 450px;
   height: 100px;
   overflow: hidden;
 }
@@ -33,6 +33,7 @@
  margin-left: 110px;
 }
 
+// ページャー
 .pagination {
   justify-content: center;
 }
@@ -86,7 +87,7 @@
 }
 
 
-
+// new画面のラベル
 .tag_text  {
   position: relative;
   display: inline-block;
