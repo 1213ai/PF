@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
- before_action :ensure_correct_user, only: [:edit]
- before_action :authenticate_user!, only: [:new]
+ before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+ before_action :authenticate_user!, only: [:new, :show]
 
   def new
     @recipe = Recipe.new

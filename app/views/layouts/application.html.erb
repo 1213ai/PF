@@ -14,25 +14,25 @@
 
   <body>
 
- <nav class="navbar navbar-expand-lg navbar-light nav-color">
+<div class="text-center"><%= link_to root_path do %><%= image_tag('logotop.png') %><% end %></div>
+ <nav class="navbar navbar-expand-lg navbar-light">
    <div class="container">
-  <a class="navbar-brand" href="/"><%= image_tag('logo.png') %></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+  <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
     <div class="navbar-nav">
 
        <% if user_signed_in? %>
-       <a><%= link_to 'MyPage', user_path(current_user.id), class: "nav-item nav-link text-white" %></a>
-       <a><%= link_to 'WriteRecipe', new_recipe_path, data: {"turbolinks" => false}, class: "nav-item nav-link text-white" %></a>
-       <a><%= link_to 'Recipes', recipes_path, class: "nav-item nav-link text-white" %></a>
-       <a><%= link_to 'Search', tag_index_path, class: "nav-item nav-link text-white" %></a>
-       <a><%= link_to "LogOut", destroy_user_session_path, method: :delete, class: "nav-item nav-link text-white" %></a>
+       <a><%= link_to 'MyPage', user_path(current_user.id), class: "nav-item nav-link active" %></a>
+       <a><%= link_to 'WriteRecipe', new_recipe_path, data: {"turbolinks" => false}, class: "nav-item nav-link active" %></a>
+       <a><%= link_to 'Recipes', recipes_path, class: "nav-item nav-link active" %></a>
+       <a><%= link_to 'Search', tag_index_path, class: "nav-item nav-link active" %></a>
+       <a><%= link_to "LogOut", destroy_user_session_path, method: :delete, class: "nav-item nav-link active" %></a>
       <% else %>
-       <a><%= link_to "SignUp", new_user_registration_path, class: "nav-item nav-link text-white" %></a>
-       <a><%= link_to "LogIn", new_user_session_path, class: "nav-item nav-link text-white" %></a>
-       <a><%= link_to 'Recipe', recipes_path, class: "nav-item nav-link text-white" %></a>
+       <a><%= link_to "SignUp", new_user_registration_path, class: "nav-item nav-link active" %></a>
+       <a><%= link_to "LogIn", new_user_session_path, class: "nav-item nav-link active" %></a>
+       <a><%= link_to 'Recipe', recipes_path, class: "nav-item nav-link active" %></a>
       <% end %>
       </div>
     </div>
@@ -43,12 +43,15 @@
     <%= yield %>
 
 
-   <footer class="footer pt-4 pb-3 mt-5">
+   <footer class="footer pt-4 pb-3 mt-5 border-top">
       <div class="container">
           <div class="text-center text-center">
-            <p>Thank☆You </p>
+             <span id="top-btn">
+              <a href="#">
+              <%= image_tag asset_path('logotitle.png'), data: {"turbolinks"=>false}, class: "arrow" %>
+              </a>
+            </span>
           </div>
-        </div>
       </div>
     </footer>
   </body>

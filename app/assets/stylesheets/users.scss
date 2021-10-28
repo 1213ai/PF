@@ -12,3 +12,37 @@
   color: gray;
 }
 
+.profile {
+  position: relative;
+  display: inline-block;
+  width: auto;
+  height: 130px;
+  margin-left: 60px;
+  padding: 0.5rem 3rem 2rem 6rem;
+  color: #fff;
+  background: #FFCC00;
+  box-shadow: 6px 6px #668AD8;
+  word-wrap: break-word;
+  text-align: left;
+}
+
+.profile:before {
+  position: absolute;
+  top: 0;
+  left: -60px;
+  content: '';
+  border-width: 64px 60px 64px 0;
+  border-style: solid;
+  border-color: transparent #FFCC00 transparent transparent;
+}
+
+.profile:after {
+  position: absolute;
+  top: calc(50% - 7px);
+  left: -20px;
+  width: 26px;
+  height: 26px;
+  content: '';
+  border-radius: 50%;
+  background: #fff;
+}

@@ -3,7 +3,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   attachment :profile_image
-  validates :name, length: { maximum: 30 }, uniqueness: true
+  validates :name, length: { maximum: 20 }, uniqueness: true
   validates :introduction, length: { maximum: 150 }
   has_many :recipes, dependent: :destroy
 

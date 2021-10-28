@@ -1,8 +1,4 @@
 <div class="mt-5">
-  
-  <h3 class="text-center top-font"><span>Welcome</span><span>TakunomiMenu</span></h3>
-  <p class="text-center lead">お酒好きのためのレシピサイトです。登録せずに閲覧できますが、登録するとMyレシピが投稿できます。</p>
-  
  <div class="section">
 
   <div class="m-5">
@@ -13,30 +9,48 @@
     </div>
   </div>
 
-  <p class="text-center lead ">TAKUNOMINENUの特徴について説明します。</p>
+<div class="text-center">
+  <h3 class="top-font">Welcome to TAKUNOMIMENU</h3>
+  <p>お酒好きのためのレシピサイトです。登録するとレシピを詳しく見ることができ、Myレシピが投稿もできます。</p>
+  <p>TAKUNOMINENUの特徴について説明します。</p>
+</div>
 
-  <div class="container marketing text-center mt-5 ">
-    <div class="row mb-5">
-      <div class="col-lg-4">
-        <div><%= image_tag 'form.jpg', class: 'item bd-placeholder-img rounded-circle' %></div>
 
-        <h2>recipes</h2>
-        <p>レシピを書きやすさを大切にしています。</br>見やすいフォームで、材料や各手順ごとに記入欄分けて書くことができます。</p>
+<div class="container marketing">
+  <hr class="featurette-divider mt-5">
+    <div class="row">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">Recipes  <span class="text-muted">書きやすさ</span></h2>
+        <p class="lead">レシピを書きやすさを大切にしています。見やすいフォームで、材料や各手順ごとに記入欄分けて書くことができます。</p>
       </div>
-      <div class="col-lg-4">
-        <div><%= image_tag 'tag.jpg', class: 'item bd-placeholder-img rounded-circle' %></div>
-
-        <h2>tags</h2>
-        <p>レシピごとにお酒のタグ付けすることにより、自身が求めていたレシピと巡り合うかもしれません。</p>
-      </div>
-      <div class="col-lg-4">
-        <div><%= image_tag 'hosi.jpg', class: 'item bd-placeholder-img rounded-circle' %></div>
-
-        <h2>stars</h2>
-        <p>Myレシピの味パラメータを付けることにより、一目見て甘さ辛さ等の味の傾向が分かるようになっています。</p>
+      <div class="col-md-5">
+        <%= image_tag 'form.jpg', class: 'bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto rounded-circle' %>
       </div>
     </div>
-  </div>
-  
+
+   <hr class="featurette-divider">
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading">Tags  <span class="text-muted">お酒の種類ごとに</span></h2>
+        <p class="lead">レシピごとにお酒のタグ付けすることにより、自身が求めていたレシピと巡り合うかもしれません。</p>
+      </div>
+      <div class="col-md-5 order-md-1">
+         <%= image_tag 'tag.jpg', class: 'bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto rounded-circle' %>
+      </div>
+    </div>
+
+   <hr class="featurette-divider">
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">Stars <span class="text-muted">星による評価</span></h2>
+        <p class="lead">Myレシピの味パラメータを付けることにより、一目見て甘さ辛さ等の味の傾向が分かるようになっています。</p>
+      </div>
+      <div class="col-md-5">
+         <%= image_tag 'hosi.jpg', class: 'bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto rounded-circle' %>
+
+      </div>
+    </div>
+   </div>
+
 
 </div>
