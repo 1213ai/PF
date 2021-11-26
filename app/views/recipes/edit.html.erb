@@ -137,7 +137,7 @@
           <p style="color: white; background-color: red;"><%= @recipe.errors.full_messages_for(:acidity).first %>
         <% end %>
 
-      <!--材料・量の入力フォーム-->
+         <!--材料・量の入力フォーム-->
          <div class="recipe-ingredients">
            <div>
             <%= f.fields_for :recipe_ingredients do |t| %>
@@ -149,7 +149,7 @@
           </div>
         </div>
 
-      <!--手順の入力フォーム-->
+        <!--手順の入力フォーム-->
         <div class="how-to-makes">
           <div>
             <%= f.fields_for :how_to_makes do |t| %>

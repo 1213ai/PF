@@ -1,42 +1,42 @@
 <!--プロフィール-->
-  <div class="text-center my-5">
-      <div class="d-block mx-auto mb-4"> <%= attachment_image_tag @user, :profile_image, :fill, 130, 130, format: 'jpeg', fallback: "no_image.jpg", class:"mt-3 mr-3 rounded-circle"%></div>
-      <h3><%= @user.name %></h3>
-      <p><%= render 'users/info', user: @user %></p>
-      <p class="lead">- - - - - -introduction- - - - - -</p>
-      <div class="profile w-75 mx-auto">
-        <div class =" m-3">
-          <%= @user.introduction %>
-        </div>
-      </div>
-      <% if @user.id == current_user.id %>
+ <div class="text-center my-5">
+   <div class="d-block mx-auto mb-4"> <%= attachment_image_tag @user, :profile_image, :fill, 130, 130, format: 'jpeg', fallback: "no_image.jpg", class:"mt-3 mr-3 rounded-circle"%></div>
+     <h3><%= @user.name %></h3>
+     <p><%= render 'users/info', user: @user %></p>
+     <p class="lead">- - - - - -introduction- - - - - -</p>
+     <div class="profile w-75 mx-auto">
+       <div class =" m-3">
+         <%= @user.introduction %>
+       </div>
+     </div>
+     <% if @user.id == current_user.id %>
        <p class="mt-3"><%= link_to edit_user_path(@user),data: {"turbolinks" => false}, class:"font-color" do %>
-          <i class="fas fa-user-edit"></i>
-          <% end %>
+         <i class="fas fa-user-edit"></i>
+         <% end %>
        </p>
-      <% end %>
+     <% end %>
  </div>
 
 
 <!--My投稿一覧-->
 <% @user.recipes.each do |recipe| %>
-<div class="card mb-5 w-75  mx-auto shadow-lg">
-  <div class="row">
-    <div class="col-lg-5-md-6-sm-6">
-      <div class="img-container"><%= attachment_image_tag recipe, :image, :fill, 300, 300, fallback: "pngtree.jpg", size:'300x300' %></div>
-    </div>
-    <div class="col-lg-7-md-6-sm-6">
-      <div class="card-body">
+ <div class="card mb-5 w-75  mx-auto shadow-lg">
+   <div class="row">
+     <div class="col-lg-5-md-6-sm-6">
+       <div class="img-container"><%= attachment_image_tag recipe, :image, :fill, 300, 300, fallback: "pngtree.jpg", size:'300x300' %></div>
+     </div>
+     <div class="col-lg-7-md-6-sm-6">
+       <div class="card-body">
          <h5 class="card-title ml-5">料理名：<%= link_to recipe_path(recipe.id), class:"font-color" do %>
-                                <%= recipe.title %>
-                                <% end %>
-        </h5>
-        <div class="card-text ml-5">人数分：<%= recipe.no_of_dish %></div>
-        <div class="text ml-5 mt-2"><%= recipe.catchcopy %></div>
-      </div>
-    </div>
-  </div>
-</div>
+            <%= recipe.title %>
+           <% end %>
+         </h5>
+         <div class="card-text ml-5">人数分：<%= recipe.no_of_dish %></div>
+         <div class="text ml-5 mt-2"><%= recipe.catchcopy %></div>
+       </div>
+     </div>
+   </div>
+ </div>
 <% end %>
 
 

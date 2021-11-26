@@ -1,15 +1,16 @@
+<!--動的フォーム-->
 <div class="nested-fields">
- <div class="container">
- <div class="row">
-    <div class="col-md-6 mb-3">
-      <label for="Material">材料</label>
-     <div><%= f.text_field :ing_name, placeholder: "材料", class: "form-control" %></div>
+  <div class="container">
+   <div class="row">
+     <div class="col-md-6 mb-3">
+       <label for="Material">材料</label>
+       <div><%= f.text_field :ing_name, placeholder: "材料", class: "form-control" %></div>
+     </div>
+     <div class="col-md-6 mb-3">
+       <label for="Quantity">分量</label>
+        <div><%= f.text_field :quantity, placeholder: "分量", class: "form-control" %></div>
+     </div>
     </div>
-    <div class="col-md-6 mb-3">
-      <label for="Quantity">分量</label>
-      <div><%= f.text_field :quantity, placeholder: "分量", class: "form-control" %></div>
-    </div>
-  </div>
     <div class="delete-btn">
       <%= link_to_remove_association "↑削除する", f, class: "badge badge-pill badge-warning text-white m-2" %>
     </div>

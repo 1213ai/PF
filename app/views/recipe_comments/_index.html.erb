@@ -1,6 +1,5 @@
 <% recipe.recipe_comments.each do |recipe_comment| %>
    <% recipe_comment_user = recipe_comment.user %>
- <tobody>
     <tr>
       <td>
         <%= link_to user_path(recipe_comment_user), class: "user_#{recipe_comment_user.id}" do %>
@@ -14,7 +13,6 @@
         <%= link_to '↑削除する', recipe_recipe_comment_path(recipe_comment.recipe_id, recipe_comment.id),method: :delete, remote: true, class: "badge badge-pill badge-warning text-white m-2 " %></td>
       	<% end %>
      </tr>
-</tobody>
 <% end %>
 
 
